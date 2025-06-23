@@ -18,6 +18,14 @@ app.get('/productos', (req, res)=>{
     res.json(productos)
 })
 
+app.get('/productos/disponibles', (req, res)=>{
+
+    const productosFiltrados = productos.filter((producto)=>{
+        return producto.disponible === true
+    })
+
+    res.json(productosFiltrados)
+})
 
 
 app.listen(PORT, () => {
