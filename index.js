@@ -106,6 +106,58 @@ app.post('/productos', async (req, res)=>{
 
 })
 
+app.put('/productos/:id', async (req, res)=>{
+    const {id} = req.params
+    const productoActualizado = req.body
+
+    // Validación básica
+  if (!productoActualizado.nombre) {
+    return res.status(400).json({ 
+        message: 'El nombre es obligatorio.' 
+    });
+  } else if(productoActualizado.precio <= 0){
+    return res.status(400).json({
+        message: 'El precio debe ser un numero positivo mayor a cero'
+    })
+  }else if(productoActualizado.descripcion.length < 10){
+    return res.status(400).json({
+        message: 'La descripcion debe tener minimo 10 caracteres'
+    })
+  }
+
+    //se busca el indice del producto a actualizar
+    const index = productos.findIndex(producto => producto.id === Number(id))
+
+    if(index === -1){
+        return res.status(404).json({
+            message: 'No encontrado: El producto no existe'
+        })
+    }
+
+    //la fecha y el id no los modificaremos
+    const productoExistente = productos[index]
+
+    const productoFinal = {
+        ...productoExistente,
+        ...productoActualizado,
+        id: productoExistente.id,
+        fecha_ingreso: productoExistente.fecha_ingreso
+    }
+
+    //realizamos el reemplazo con nuestro objeto local
+    productos[index] = productoFinal
+
+    //se guardan los cambios
+    try{
+
+    }catch (error){
+        console.error('Error al guardar los cambios',error)
+        res.status(500).json({
+            message: 'Error al guardar los cambios'
+        })
+    }
+})
+
 app.delete('/productos/:id', async (req, res)=>{
     const { id } = req.params
 

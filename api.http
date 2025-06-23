@@ -3,7 +3,7 @@
 GET http://localhost:3000/productos
 
 ###consulta por id de producto
-GET http://localhost:3000/productos/22
+GET http://localhost:3000/productos/20
 
 ### agregar un nuevo producto
 POST http://localhost:3000/productos
@@ -14,6 +14,17 @@ Content-Type: application/json
   "precio": 1330,
   "descripcion": "Zapatillas para correr de alta calidad.",
   "disponible": true
+}
+
+### Actualziar un producto
+PUT http://localhost:3000/productos/20
+Content-Type: application/json
+
+{
+    "nombre": "Zapatillas casuales",
+    "precio": 1320,
+    "descripcion": "Zapatillas",
+    "disponible": true
 }
 
 
