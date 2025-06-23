@@ -10,8 +10,8 @@ POST http://localhost:3000/productos
 Content-Type: application/json
 
 {
-  "nombre": "Zapatillas deportivas",
-  "precio": 1330,
+  
+  "precio": 2000,
   "descripcion": "Zapatillas para correr de alta calidad.",
   "disponible": true
 }

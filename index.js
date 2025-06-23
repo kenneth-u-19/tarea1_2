@@ -110,20 +110,20 @@ app.put('/productos/:id', async (req, res)=>{
     const {id} = req.params
     const productoActualizado = req.body
 
-    // Validación básica
-  if (!productoActualizado.nombre) {
-    return res.status(400).json({ 
-        message: 'El nombre es obligatorio.' 
-    });
-  } else if(productoActualizado.precio <= 0){
-    return res.status(400).json({
-        message: 'El precio debe ser un numero positivo mayor a cero'
-    })
-  }else if(productoActualizado.descripcion.length < 10){
-    return res.status(400).json({
-        message: 'La descripcion debe tener minimo 10 caracteres'
-    })
-  }
+    // Validación básica. se quitaron porque sino obliga a colocar todo para actualizar solo un campo
+//   if (!productoActualizado.nombre) {
+//     return res.status(400).json({ 
+//         message: 'El nombre es obligatorio.' 
+//     });
+//   } else if(productoActualizado.precio <= 0){
+//     return res.status(400).json({
+//         message: 'El precio debe ser un numero positivo mayor a cero'
+//     })
+//   }else if(productoActualizado.descripcion.length < 10){
+//     return res.status(400).json({
+//         message: 'La descripcion debe tener minimo 10 caracteres'
+//     })
+//   }
 
     //se busca el indice del producto a actualizar
     const index = productos.findIndex(producto => producto.id === Number(id))
