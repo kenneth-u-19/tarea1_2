@@ -5,7 +5,16 @@ GET http://localhost:3000/productos
 ###consulta por id de producto
 GET http://localhost:3000/productos/22
 
+### agregar un nuevo producto
+POST http://localhost:3000/productos
+Content-Type: application/json
 
+{
+  "nombre": "Zapatillas deportivas",
+  "precio": 1330,
+  "descripcion": "Zapatillas para correr de alta calidad.",
+  "disponible": true
+}
 
 
 ### eliminar producto por id

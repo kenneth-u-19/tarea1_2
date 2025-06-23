@@ -2,6 +2,8 @@ import express from 'express'
 import productos from './local_db/productos.json' with {type: 'json'}
 import {Message} from 'firebase-functions/pubsub'
 import fs from 'node:fs/promises';
+import path from 'node:path';
+import { writeFile } from 'fs/promises';
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -54,7 +56,55 @@ app.get('/productos/:id', (req, res)=>{
 
 })
 
+app.post('/productos', async (req, res)=>{
+    const {nombre, precio, descripcion, disponible} = req.body
 
+    // Validación básica
+  if (!nombre) {
+    return res.status(400).json({ 
+        message: 'El nombre es obligatorio.' 
+    });
+  } else if(precio <= 0){
+    return res.status(400).json({
+        message: 'El precio debe ser un numero positivo mayor a cero'
+    })
+  }else if(descripcion.length < 10){
+    return res.status(400).json({
+        message: 'La descripcion debe tener minimo 10 caracteres'
+    })
+  }
+
+  const nuevoId = productos.length ? productos[productos.length - 1].id + 1 : 1
+  
+  const nuevoProducto = {
+    id: nuevoId,
+    nombre,
+    precio,
+    descripcion,
+    disponible,
+    fecha_ingreso: new Date().toISOString().split('T')[0] //yyyy-mm-dd
+  }
+
+  productos.push(nuevoProducto)
+
+  const rutaJson = path.resolve('./local_db/productos.json')
+
+  try{
+    await writeFile(rutaJson, JSON.stringify(productos,null, 2))
+
+    res.status(201).json({
+        message: 'Producto agregado correctamente',
+        producto: nuevoProducto
+    })
+
+  }catch(error){
+    console.error('Error al guardar el archivo', error)
+    res.status(500).json({
+        message: 'Error interno al guardar el producto'
+    })
+  }
+
+})
 
 app.delete('/productos/:id', async (req, res)=>{
     const { id } = req.params

@@ -150,5 +150,13 @@
     "descripcion": "Micrófono ideal para grabación de voz y streaming.",
     "disponible": true,
     "fecha_ingreso": "2025-06-03"
+  },
+  {
+    "id": 20,
+    "nombre": "Zapatillas deportivas",
+    "precio": 1200,
+    "descripcion": "Zapatillas para correr de alta calidad.",
+    "disponible": true,
+    "fecha_ingreso": "2025-06-23"
   }
 ]
