@@ -2,7 +2,7 @@
   {
     "id": 1,
     "nombre": "Memoria USB",
-    "precio": 25.50,
+    "precio": 25.5,
     "descripcion": "Memoria USB negra, cuenta con 32 GB de espacio, indicador con luz led.",
     "disponible": true,
     "fecha_ingreso": "2025-06-22"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "nombre": "Teclado mecánico",
-    "precio": 55.00,
+    "precio": 55,
     "descripcion": "Teclado mecánico RGB con switches azules y diseño compacto.",
     "disponible": true,
     "fecha_ingreso": "2025-06-18"
@@ -34,7 +34,7 @@
   {
     "id": 5,
     "nombre": "Disco duro externo 1TB",
-    "precio": 75.00,
+    "precio": 75,
     "descripcion": "Almacenamiento portátil USB 3.0 compatible con Windows y Mac.",
     "disponible": true,
     "fecha_ingreso": "2025-06-17"
@@ -58,7 +58,7 @@
   {
     "id": 8,
     "nombre": "Power Bank 10,000mAh",
-    "precio": 22.00,
+    "precio": 22,
     "descripcion": "Batería portátil con doble salida USB y carga rápida.",
     "disponible": true,
     "fecha_ingreso": "2025-06-19"
@@ -66,7 +66,7 @@
   {
     "id": 9,
     "nombre": "Altavoz Bluetooth",
-    "precio": 35.00,
+    "precio": 35,
     "descripcion": "Altavoz portátil resistente al agua con sonido estéreo.",
     "disponible": true,
     "fecha_ingreso": "2025-06-14"
@@ -82,7 +82,7 @@
   {
     "id": 11,
     "nombre": "Monitor 24 pulgadas",
-    "precio": 140.00,
+    "precio": 140,
     "descripcion": "Monitor LED Full HD con entrada HDMI y VGA.",
     "disponible": false,
     "fecha_ingreso": "2025-06-11"
@@ -90,7 +90,7 @@
   {
     "id": 12,
     "nombre": "Soporte para laptop",
-    "precio": 18.50,
+    "precio": 18.5,
     "descripcion": "Soporte de aluminio ajustable compatible con la mayoría de laptops.",
     "disponible": true,
     "fecha_ingreso": "2025-06-08"
@@ -98,7 +98,7 @@
   {
     "id": 13,
     "nombre": "Memoria RAM DDR4 8GB",
-    "precio": 42.00,
+    "precio": 42,
     "descripcion": "Memoria de alto rendimiento compatible con la mayoría de PCs.",
     "disponible": true,
     "fecha_ingreso": "2025-06-09"
@@ -122,7 +122,7 @@
   {
     "id": 16,
     "nombre": "Smartwatch deportivo",
-    "precio": 65.50,
+    "precio": 65.5,
     "descripcion": "Reloj inteligente con GPS, pulsómetro y resistencia al agua.",
     "disponible": true,
     "fecha_ingreso": "2025-06-06"
@@ -138,7 +138,7 @@
   {
     "id": 18,
     "nombre": "Silla gamer",
-    "precio": 210.00,
+    "precio": 210,
     "descripcion": "Silla ergonómica con soporte lumbar y reposabrazos ajustables.",
     "disponible": false,
     "fecha_ingreso": "2025-06-04"
@@ -150,13 +150,5 @@
     "descripcion": "Micrófono ideal para grabación de voz y streaming.",
     "disponible": true,
     "fecha_ingreso": "2025-06-03"
-  },
-  {
-    "id": 20,
-    "nombre": "Cargador USB múltiple",
-    "precio": 17.25,
-    "descripcion": "Cargador con 4 puertos USB y protección contra sobrecargas.",
-    "disponible": true,
-    "fecha_ingreso": "2025-06-01"
   }
 ]

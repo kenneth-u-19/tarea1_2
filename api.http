@@ -1,0 +1,12 @@
+
+###Lista de productos
+GET http://localhost:3000/productos
+
+###consulta por id de producto
+GET http://localhost:3000/productos/22
+
+
+
+
+### eliminar producto por id
+DELETE  http://localhost:3000/productos/20

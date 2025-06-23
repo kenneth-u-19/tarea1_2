@@ -1,6 +1,7 @@
 import express from 'express'
 import productos from './local_db/productos.json' with {type: 'json'}
 import {Message} from 'firebase-functions/pubsub'
+import fs from 'node:fs/promises';
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -53,7 +54,33 @@ app.get('/productos/:id', (req, res)=>{
 
 })
 
+app.delete('/productos/:id', async (req, res)=>{
+    const { id } = req.params
 
+    const productoId = Number(id)
+
+    const index = productos.findIndex(producto => producto.id === productoId)
+
+    if (index === -1) {
+    return res.status(404).json({
+      message: 'No encontrado: Producto no existe'
+    });
+  }
+
+  productos.splice(index, 1)
+
+  try {
+    await fs.writeFile('./local_db/productos.json', JSON.stringify(productos, null, 2));
+    res.json({
+      message: 'Película eliminada correctamente'
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: 'Error al guardar los cambios',
+      error: error.message
+    });
+  }
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
