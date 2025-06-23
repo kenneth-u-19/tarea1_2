@@ -28,6 +28,33 @@ app.get('/productos/disponibles', (req, res)=>{
 })
 
 
+app.get('/productos/:id', (req, res)=>{
+    const {id} = req.params
+
+    const parsedId = Number(id)
+
+    if(isNaN(parsedId)){
+        res.status(400).json({
+            message: 'Entrada no valida: El id debe ser un numero'
+        })
+    }
+
+    const producto = productos.find((producto) =>{
+        return producto.id === parsedId
+    })
+
+    if(!producto){
+        res.status(404).json({
+            message: 'No encontrado: El producto no existe.'
+        })
+    }
+
+    res.json(producto)
+
+})
+
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
 }) 
