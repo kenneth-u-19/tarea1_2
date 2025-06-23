@@ -54,6 +54,8 @@ app.get('/productos/:id', (req, res)=>{
 
 })
 
+
+
 app.delete('/productos/:id', async (req, res)=>{
     const { id } = req.params
 
